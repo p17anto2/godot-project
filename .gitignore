@@ -9,4 +9,4 @@ export_presets.cfg
 data_*/
 
 #GIMP Files
-raw_assets/*.xcf
+raw_assets/?.xcf
