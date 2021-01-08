@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://env/Env_Parent.gd" type="Script" id=1]
+[ext_resource path="res://raw_assets/teras.jpg" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 29.8299, 29.2892 )
+
+[node name="Env_Test" type="StaticBody2D"]
+position = Vector2( 409, 234 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.0830383, 5.72205e-06 )
+scale = Vector2( 0.0508148, 0.0370515 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
