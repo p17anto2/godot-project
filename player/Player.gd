@@ -84,6 +84,7 @@ func movement():
 func hear(delta):
 	if Input.is_action_pressed("ui_hear"):
 		can_move = false #Obstruct movement
+		animPlayer.play("Player_Idle") #Play idle animation
 		var weight = HEAR_STEP * step #Linear Interpolation Weight
 		#If weight >= 1 then we have exceeded our maximum hearing range
 		if weight <= 1:

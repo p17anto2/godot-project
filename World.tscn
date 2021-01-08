@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://env/BackGround.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://env/LightGround.gd" type="Script" id=4]
 [ext_resource path="res://env/PLoudGround.gd" type="Script" id=5]
 [ext_resource path="res://env/LoudGround.gd" type="Script" id=6]
+[ext_resource path="res://raw_assets/Outline.png" type="Texture" id=7]
+[ext_resource path="res://HUDText.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 526.223, 387.56 )
@@ -27,6 +29,16 @@ type = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackGround"]
 shape = SubResource( 1 )
 
+[node name="Label" type="Label" parent="BackGround"]
+margin_left = -47.9053
+margin_top = 328.32
+margin_right = -7.9053
+margin_bottom = 342.32
+text = "Loud"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LightGround" type="Area2D" parent="."]
 position = Vector2( 143.704, 604.125 )
 script = ExtResource( 4 )
@@ -37,6 +49,27 @@ type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightGround"]
 shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="LightGround"]
+margin_left = -103.0
+margin_top = -493.0
+margin_right = 92.0
+margin_bottom = -347.0
+texture = ExtResource( 7 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LightGround"]
+margin_left = -46.8618
+margin_top = -519.914
+margin_right = 44.1382
+margin_bottom = -505.914
+text = "Pretty Audible"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PLoudGround" type="Area2D" parent="."]
 position = Vector2( 143.703, 396.112 )
@@ -49,6 +82,27 @@ type = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PLoudGround"]
 shape = SubResource( 2 )
 
+[node name="TextureRect" type="TextureRect" parent="PLoudGround"]
+margin_left = -93.703
+margin_top = -72.112
+margin_right = 96.297
+margin_bottom = 72.888
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="PLoudGround"]
+margin_left = -43.7029
+margin_top = -101.375
+margin_right = 47.2971
+margin_bottom = -87.3749
+text = "Audible"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LoudGround" type="Area2D" parent="."]
 position = Vector2( 139.182, 183.576 )
 script = ExtResource( 6 )
@@ -59,6 +113,37 @@ type = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LoudGround"]
 shape = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="LoudGround"]
+margin_left = -91.182
+margin_top = 344.424
+margin_right = 98.818
+margin_bottom = 495.424
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="LoudGround"]
+margin_left = -41.2872
+margin_top = 315.372
+margin_right = 51.7128
+margin_bottom = 329.372
+text = "Barely Audible"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 704.674
+margin_top = 165.966
+margin_right = 926.674
+margin_bottom = 179.966
+text = "Environment Objects (Placeholder)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Env_Test2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 829.104, 616.05 )
@@ -74,6 +159,17 @@ position = Vector2( 815.888, 240.521 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 485.764, 629.98 )
+
+[node name="HUDText" type="Label" parent="."]
+margin_left = 397.935
+margin_top = 223.397
+margin_right = 592.935
+margin_bottom = 248.397
+text = "What"
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="BackGround" to="BackGround" method="_on_BackGround_body_entered"]
 [connection signal="body_entered" from="LightGround" to="LightGround" method="_on_LightGround_body_entered"]
 [connection signal="body_exited" from="LightGround" to="LightGround" method="_on_LightGround_body_exited"]
