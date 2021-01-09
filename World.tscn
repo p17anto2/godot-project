@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://env/BackGround.gd" type="Script" id=2]
@@ -7,7 +7,11 @@
 [ext_resource path="res://env/PLoudGround.gd" type="Script" id=5]
 [ext_resource path="res://env/LoudGround.gd" type="Script" id=6]
 [ext_resource path="res://raw_assets/Outline.png" type="Texture" id=7]
-[ext_resource path="res://HUDText.gd" type="Script" id=8]
+[ext_resource path="res://HUD/HUDText.gd" type="Script" id=8]
+[ext_resource path="res://HUD/Label_Obj.gd" type="Script" id=9]
+[ext_resource path="res://HUD/Label_loud_2.gd" type="Script" id=10]
+[ext_resource path="res://HUD/Label_loud_1.gd" type="Script" id=11]
+[ext_resource path="res://HUD/Label_loud_3.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 526.223, 387.56 )
@@ -29,22 +33,9 @@ type = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackGround"]
 shape = SubResource( 1 )
 
-[node name="Label" type="Label" parent="BackGround"]
-margin_left = -47.9053
-margin_top = 328.32
-margin_right = -7.9053
-margin_bottom = 342.32
-text = "Loud"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="LightGround" type="Area2D" parent="."]
 position = Vector2( 143.704, 604.125 )
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
 type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightGround"]
@@ -61,12 +52,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="LightGround"]
-margin_left = -46.8618
-margin_top = -519.914
-margin_right = 44.1382
-margin_bottom = -505.914
-text = "Pretty Audible"
+[node name="Label3" type="Label" parent="LightGround"]
+margin_left = -45.8092
+margin_top = -105.177
+margin_right = 47.1908
+margin_bottom = -91.177
+text = "Barely Audible"
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -74,9 +66,6 @@ __meta__ = {
 [node name="PLoudGround" type="Area2D" parent="."]
 position = Vector2( 143.703, 396.112 )
 script = ExtResource( 5 )
-__meta__ = {
-"_edit_group_": true
-}
 type = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PLoudGround"]
@@ -99,6 +88,7 @@ margin_top = -101.375
 margin_right = 47.2971
 margin_bottom = -87.3749
 text = "Audible"
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -106,9 +96,6 @@ __meta__ = {
 [node name="LoudGround" type="Area2D" parent="."]
 position = Vector2( 139.182, 183.576 )
 script = ExtResource( 6 )
-__meta__ = {
-"_edit_group_": true
-}
 type = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LoudGround"]
@@ -125,12 +112,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="LoudGround"]
-margin_left = -41.2872
-margin_top = 315.372
-margin_right = 51.7128
-margin_bottom = 329.372
-text = "Barely Audible"
+[node name="Label" type="Label" parent="LoudGround"]
+margin_left = -42.3398
+margin_top = -99.365
+margin_right = 48.6602
+margin_bottom = -85.365
+text = "Pretty Audible"
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -140,7 +128,7 @@ margin_left = 704.674
 margin_top = 165.966
 margin_right = 926.674
 margin_bottom = 179.966
-text = "Environment Objects (Placeholder)"
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -161,11 +149,11 @@ position = Vector2( 815.888, 240.521 )
 position = Vector2( 485.764, 629.98 )
 
 [node name="HUDText" type="Label" parent="."]
-margin_left = 397.935
-margin_top = 223.397
-margin_right = 592.935
-margin_bottom = 248.397
-text = "What"
+margin_left = 54.0
+margin_top = 732.0
+margin_right = 957.0
+margin_bottom = 757.0
+percent_visible = 0.0
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
