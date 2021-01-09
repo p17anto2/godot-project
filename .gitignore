@@ -1,6 +1,7 @@
 
 # Godot-specific ignores
 .import/
+*.import
 export.cfg
 export_presets.cfg
 
@@ -9,4 +10,4 @@ export_presets.cfg
 data_*/
 
 #GIMP Files
-raw_assets/*.xcf
+*.xcf
